@@ -1,0 +1,12 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %}{{ form.instance.title|default:'Новое дело' }}{% endblock %}
+
+{% block content %}
+  <h1>{{ form.instance.title|default:'Новое дело' }}</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+  </form>
+{% endblock %}
